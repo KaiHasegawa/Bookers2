@@ -1,0 +1,21 @@
+<div class="body-wrap">
+    <div class="form-header">
+        <h2 class="form-header-title">User Info</h2>
+    </div>
+
+    <%= render "layouts/error_messages", error: @user %>
+
+    <div class="form-body">NAME
+      <%= form_for(@user) do |f| %>
+          <label class="control-label sr-only" for="inputEmail">Name</label>
+          <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName", placeholder:"名前"%>
+           <label class="control-label sr-only" for="user_profile_image">ProfileImage</label>
+           <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
+           <div class="field">
+            <label for="user_introduction">Introduction</label>
+            <textarea class="introduction" name="user[introduction]" id="user_introduction"></textarea>
+           </div>
+            <%= f.submit "Updete User" %>
+      <% end %>
+    </div>
+</div>

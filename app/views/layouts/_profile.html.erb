@@ -1,0 +1,62 @@
+<div class="col-md-3">
+      <h2>User Info</h2>
+        <div class="profile-container">
+          <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-thumb",fallback: "no_image.jpg" %>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th>name</th>
+                   <% if user.errors.any? %>
+                    <div class="alert alert-warning">
+                     <ul>
+                      <p><%= user.errors.count %>error</p>
+                      <% user.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                     </ul>
+                     </div>
+                       <% end %>
+                  <th class="profile-name"><%= user.name %></th>
+                </tr>
+
+                <tr>
+                  <th>introduction</th>
+                  <th><%= user.introduction %></th>
+                </tr>
+              </tbody>
+            </table>
+
+          <%= link_to edit_user_path(user) do%>
+            <div class="btn btn-default glyphicon glyphicon-wrench btn-block">
+            </div>
+          <%end%>
+         </div>
+
+         <p id="notice"><%= notice %></p>
+
+         <h2>New Book</h2>
+          <% if book.errors.any? %>
+            <div class="alert alert-warning">
+              <ul>
+                <p><%= book.errors.count %>error</p>
+                <% book.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <%= form_for(book) do |f| %>
+
+          <div class="field">
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+          </div>
+
+        <div class="field">
+          <%= f.label :body %>
+          <%= f.text_area :body %>
+        </div>
+        <%= f.submit'Create Book' ,class: 'btn btn-primary btn-block' %>
+        <% end %>
+</div>

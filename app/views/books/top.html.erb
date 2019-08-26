@@ -1,0 +1,16 @@
+<div class="container">
+	<% if flash[:success] %>
+    <p>Signed out successfully.</p>
+    <% end %>
+
+<h1 class="title">welcom to <br><span class="glyphicon glyphicon-book"></span>Bookers !!</h1>
+	<div class="text">
+		<p>In <span class="glyphicon glyphicon-book"></span>Bookers,<br>
+			you can share and exchange your opinions ,inpressions ,and emotions<br>
+			about various books!</p>
+	</div>
+	<div class="Topbtn">
+	<%= link_to 'Log In', user_session_path, class: "btn btn-primary btn-block" %><br>
+	<%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-success btn-block" %>
+	</div>
+</div>
